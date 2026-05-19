@@ -51,15 +51,24 @@ using namespace std;
 int main () {
 
    cout
-      // Display Requirement 1
+      // your name on one line (please make this accurate)
       << "Michael Maguire\n"
-      // Display Requirement 2
-      << "100 SAS Campus Drive Cary, NC, 27513\n"
-      // Display Requirement 3
+      // your address on one line
+      << "100 SAS Campus Drive, Cary, NC, 27513\n"
+      // your telephone number on one line
       << "352-111-1111\n"
-      // Display Requirement 4
+      // your college major on one line
       << "Computer Programming and Analysis"
       // Requirement 5 - only one `cout` statement
+      << endl
+   ;
+
+   /* 
+      add several blank lines at the very bottom of your program to move the 
+      output from Visual Studio away from your output.
+   */
+
+   cout
       << endl
       << endl
       << endl
@@ -73,12 +82,14 @@ int main () {
 
 /* 
 
-   Verification from log:
+Verification from log:
+----------------------
 
-   Michael Maguire
-   100 SAS Campus Drive Cary, NC, 27513
-   352-111-1111
-   Computer Programming and Analysis
+Michael Maguire
+100 SAS Campus Drive, Cary, NC, 27513
+352-111-1111
+Computer Programming and Analysis
+
 
 
 
