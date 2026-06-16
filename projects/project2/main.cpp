@@ -1,3 +1,18 @@
+/*
+
+--------------------------------------------------------------------------------
+
+Author: Michael Maguire
+Course: COP 2000 - Introduction to Programming
+Institution: Santa Fe College
+Term: Summer 2026 (May 2026 - June 2026)
+Project: Project 1
+Program Name: main.cpp
+
+--------------------------------------------------------------------------------
+
+*/
+
 #include <iostream>
 #include <iomanip>
 #include <string>
