@@ -1369,6 +1369,178 @@ int main () {
     }
 
    return 0;
+
 }
+
+```
+
+**3.7 Detecting multiple features with branches**
+
+**Multiple distinct if statements**
+
+A programmer can use multiple if statements in sequence to detect multiple features with independent actions. Multiple sequential if statements looks similar to a multi-branch if-else statement but has a very different meaning. Each if-statement is independent, and thus more than one branch can execute, in contrast to the multi-branch if-else arrangement.
+
+**Nested if-else statements**
+
+A branch's statements can include any valid statements, including another if-else statement, which are known as nested if-else statements. Nested if statements are commonly used to make decisions that are based on multiple features. Ex: To calculate a discount based on both the number of items purchased and the total cost of those items, one if statement checks the number of items purchased and a nested if statement can check the total cost.
+
+```cpp
+// 3.7.2: Detecting multiple features with branches.
+
+// Integer dollars is read from input. Write multiple if statements:
+// If dollars is greater than or equal to 13, then output "Buy a hat."
+// If dollars is greater than or equal to 30, then output "Buy a new coat."
+// If dollars is less than 2, then output "Save money."
+// End each output with a newline.
+
+#include <iostream>
+
+using namespace std;
+
+int main () {
+
+   int dollars;
+
+   cin 
+        >> dollars
+    ;
+
+    if ( dollars >= 13 ) { 
+
+        cout
+            << "Buy a hat."
+            << endl
+        ;
+
+    } 
+    
+    if ( dollars >= 30 ) { 
+
+        cout
+            << "Buy a new coat."
+            << endl
+        ;
+
+    } 
+    
+    if ( dollars < 2 ) {
+
+        cout
+            << "Save money."
+            << endl
+        ;
+
+    }
+
+   return 0;
+
+}
+
+/*
+
+Integers numScore1 and numScore2 are read from input. 
+Write one if statement and one if-else statement:
+
+If numScore1 is less than 15, then output "numScore1 is less than 15."
+If numScore2 is less than or equal to 25, then assign numScore2 with 6.
+Otherwise, output "numScore2 is greater than 25."
+End each output with a newline.
+
+*/
+
+int main() {
+
+   int numScore1;
+   int numScore2;
+
+   cin >> numScore1;
+   cin >> numScore2;
+
+    if ( numScore1 < 15 ) {
+        
+        cout 
+            << "numScore1 is less than 15."
+            << endl
+        ;
+
+    }
+
+    if ( numScore2 <= 25 ) {
+        
+        numScore2 = 6;
+
+    } else {
+
+        cout
+            << "numScore2 is greater than 25."
+            << endl
+        ;
+
+    }
+
+   cout << "numScore2 is " << numScore2 << "." << endl;
+
+   return 0;
+}
+
+/*
+
+Integers numCheesecakes and myMoney are read from input. Each cheesecake costs 9 dollars.
+
+Write the following if-else statement. Within the else branch, write the following assignment and nested if-else statement:
+
+If numCheesecakes is less than 5, output "Please purchase at least 5 cheesecakes".
+Otherwise:
+Assign variable totalCost with the product of numCheesecakes and 9.
+If totalCost is less than or equal to myMoney, then output "Successful purchase".
+Otherwise, output "Need more money to purchase all".
+End each output with a newline.
+
+*/ 
+
+#include <iostream>
+using namespace std;
+
+int main() {
+   int numCheesecakes;
+   int myMoney;
+   int totalCost;
+
+   cin >> numCheesecakes;
+   cin >> myMoney;
+
+   if ( numCheesecakes < 5 ) {
+    
+        cout 
+            << "Please purchase at least 5 cheesecakes"
+            << endl
+        ;
+
+   } else {
+
+        totalCost = numCheesecakes * 9;
+
+        if ( totalCost <= myMoney ) {
+
+            cout
+                << "Successful purchase"
+                << endl
+            ;
+
+        } else {
+
+            cout
+                << "Need more money to purchase all"
+                << endl
+            ;
+
+        }
+
+   }
+
+   return 0;
+
+}
+
 
 ```
