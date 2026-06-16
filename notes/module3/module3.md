@@ -1050,6 +1050,325 @@ int main() {
    cout << "Channel type: " << channelType << endl;
    
    return 0;
-   
+
 }
+```
+
+**Detecting ranges implicitly vs. explicitly**
+
+A programmer often uses logical operators to detect a range by explicitly specifying the high-end and low-end of the range. However, if a program should detect increasing ranges without gaps, a multi-branch if-else statement can be used without logical operators; the low-end of the range is implicitly known upon reaching an expression. Likewise, a decreasing range without gaps has implicitly-known high-ends.
+
+```cpp
+// Challenge activity - 3.5.1: Detecting ranges using logical operators
+// Modify the given if statement so that "Not a small town" is output if 
+// inputSize is outside the range 1200 - 5000 inclusive. Otherwise, 
+// "Small town" is output.
+
+#include <iostream>
+
+using namespace std;
+
+int main () {
+
+   int inputSize;
+
+   cin >> inputSize;
+
+   // Modify the following line
+   if ( ( inputSize < 1200 ) || ( inputSize > 5000 ) ) {
+
+        cout 
+            << "Not a small town" 
+            << endl
+        ;
+
+   } else {
+
+        cout 
+            << "Small town" 
+            << endl
+        ;
+
+   }
+
+   return 0;
+
+}
+
+// The 29% tax bracket applies to earningsInput in the range 54000 - 76000 
+// inclusive. Write an if statement that outputs "Different tax bracket" 
+// if the input earningsInput is not in this range. Otherwise, output 
+// "29% tax bracket". End each output with a newline.
+
+int main () {
+
+   int earningsInput;
+
+   cin >> earningsInput;
+
+   if ( ( earningsInput >= 54000 ) && ( earningsInput <= 76000 ) ) {
+    
+        cout
+            << "29% tax bracket"
+            << endl
+        ;
+
+   } else {
+
+        cout
+            << "Different tax bracket"
+            << endl
+        ;
+
+   }
+
+   return 0;
+
+}
+
+// The temperature of tin in degrees Fahrenheit is read from input into 
+// integer variable inputTemp. If inputTemp is:
+
+// < 451 degrees Fahrenheit, output "New state: solid".
+// ≥ 451 degrees Fahrenheit and < 4533 degrees Fahrenheit, output "New state: liquid".
+// Otherwise, output "New state: gas". End each output with a newline.
+
+#include <iostream>
+
+using namespace std;
+
+int main () {
+
+   int inputTemp;
+
+   cin 
+        >> inputTemp
+    ;
+
+    if ( inputTemp < 451 ) { 
+
+        cout
+            << "New state: solid"
+            << endl
+        ;
+
+    } else if ( ( inputTemp >= 451 ) && ( inputTemp < 4533 ) ) { 
+
+        cout 
+            << "New state: liquid"
+            << endl
+        ;
+
+    } else { 
+
+        cout
+            << "New state: gas"
+            << endl
+        ;
+
+    }
+
+   /* Your code goes here */
+
+   return 0;
+
+}
+
+// If integer yearInput is in the inclusive range:
+
+// 701 - 800, output "The 8th century".
+// 801 - 900, output "The 9th century".
+// 901 - 1000, output "The 10th century".
+// Otherwise, output "Records not available for this input". 
+// End each output with a newline.
+
+int main () {
+
+   int yearInput;
+
+   cin 
+        >> yearInput
+    ;
+
+    if ( ( yearInput >= 701 ) && ( yearInput <= 800 ) ) { 
+
+        cout
+            << "The 8th century"
+            << endl
+        ;
+
+    } else if ( ( yearInput >= 801 ) && ( yearInput <= 900 ) ) { 
+
+        cout 
+            << "The 9th century"
+            << endl
+        ;
+
+    } else if ( ( yearInput >= 901 ) && ( yearInput <= 1000 ) ) { 
+
+        cout 
+            << "The 10th century"
+            << endl
+        ;
+
+    }  else { 
+
+        cout
+            << "Records not available for this input"
+            << endl
+        ;
+
+    }
+
+   return 0;
+
+}
+
+```
+
+**3.6 Detecting ranges with gaps**
+
+**Basic ranges with gaps**
+
+Oftentimes, ranges contain gaps. Ex: Movie theaters often give ticket discounts to children (anyone 12 and under) and seniors (anyone 65 and older). The gap is the group of people aged 13 to 64. An if-else statement can be used to detect such ranges with gaps.
+
+**Ranges with gaps using logical operators**
+
+Programmers often use logical operators to explicitly detect ranges with an upper and lower bound, including ranges with gaps that may have intermediate bounds. Ex: If a valid office number is within the ranges of 100 to 150 or 200 to 250, the logical AND operator can be used to identify the lower and upper bounds of the two ranges. Further, the ranges can be combined into a single branch using the logical OR operator.
+
+```cpp
+
+// 3.6.2: Ranges with gaps.
+
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+   int ownedApples;
+
+   cin 
+        >> ownedApples
+    ;  
+
+   if ( ( ownedApples < 11 ) || ( ownedApples > 26 ) ) { 
+
+        cout
+            << "Unsatisfactory batch"
+            << endl
+        ;
+
+   }
+
+   return 0;
+
+}
+
+// Double volumeInMilliliters is read from input representing a volume 
+// in milliliters. If the volume is smaller than 15.5 milliliters or 
+// bigger than 100.5 milliliters, output "Abandon". Otherwise, output 
+// "Authorize". End each output with a newline.
+
+int main() {
+
+   double volumeInMilliliters;
+   
+   cin >> volumeInMilliliters;
+
+   /* Your code goes here */
+   if ( ( volumeInMilliliters < 15.5 ) || ( volumeInMilliliters > 100.5 ) ) { 
+
+        cout
+            << "Abandon"
+            << endl
+        ;
+
+   } else {
+
+        cout
+            << "Authorize"
+            << endl
+        ;
+
+    }
+
+   return 0;
+
+}
+
+// Integer spoonsOrdered is read from input representing 
+// the number of spoons. Output:
+// "Small bin", if there are 60 - 100 spoons inclusive.
+// "Medium bin", if there are 160 - 190 spoons inclusive.
+// End each output with a newline.
+
+int main () {
+
+   int spoonsOrdered;
+
+   cin 
+        >> spoonsOrdered
+    ;  
+
+   if ( ( spoonsOrdered >= 60 ) && ( spoonsOrdered <= 100 ) ) { 
+
+        cout
+            << "Small bin"
+            << endl
+        ;
+
+   } else if ( ( spoonsOrdered >= 160 ) && ( spoonsOrdered <= 190 ) ) {
+
+        cout
+            << "Medium bin"
+            << endl
+        ;
+
+    }
+   
+
+   return 0;
+
+}
+
+// Integer napkinsCount is read from input representing the number of napkins. Output:
+
+// "Full carton", if the number of napkins is greater than or equal to 60 and less than 105.
+// "Jumbo carton", if the number of napkins is greater than or equal to 135 and less than 185.
+// "Select another amount", otherwise.
+// End each output with a newline.
+
+int main () {
+
+   int napkinsCount;
+
+   cin >> napkinsCount;  
+
+    if ( ( napkinsCount >= 60 ) && ( napkinsCount < 105 ) ) { 
+
+        cout 
+            << "Full carton"
+            << endl
+        ;
+
+    } else if ( ( napkinsCount >= 135 ) && ( napkinsCount < 185 ) ) { 
+
+        cout 
+            << "Jumbo carton"
+            << endl
+        ;
+
+    }  else { 
+
+        cout
+            << "Select another amount"
+            << endl
+        ;
+
+    }
+
+   return 0;
+}
+
 ```
